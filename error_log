@@ -1,0 +1,22 @@
+[28-Sep-2017 07:47:59 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/hibahcom/public_html/hims/application/views/admin/partials/admin_header.php on line 84
+[28-Sep-2017 07:55:29 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/hibahcom/public_html/hims/application/views/admin/partials/admin_header.php on line 67
+[28-Sep-2017 08:05:02 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected 'endif' (T_ENDIF) in /home/hibahcom/public_html/hims/application/views/admin/partials/admin_header.php on line 75
+[28-Sep-2017 08:07:15 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/views/admin/partials/admin_header.php on line 146
+[28-Sep-2017 08:07:38 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/views/admin/partials/admin_header.php on line 147
+[28-Sep-2017 09:11:57 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected '(' in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 60
+[28-Sep-2017 09:12:16 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 63
+[28-Sep-2017 09:12:48 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:27 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:40 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:42 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:42 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:42 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:42 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:42 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:48 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:49 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:51 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:51 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:15:51 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:16:13 Asia/Kuala_Lumpur] PHP Parse error:  syntax error, unexpected end of file in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 62
+[28-Sep-2017 09:17:25 Asia/Kuala_Lumpur] PHP Fatal error:  Call to a member function result_array() on null in /home/hibahcom/public_html/hims/application/models/Model_profile.php on line 32
