@@ -22,5 +22,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url('assets/build/js/custom.js'); ?>"> </script>
+    <!-- Date Picker -->
+    <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js'); ?>"> </script>
   </body>
 </html>

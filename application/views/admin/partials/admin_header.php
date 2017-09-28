@@ -69,14 +69,14 @@
                   <ul class="nav child_menu">
                     <li><a href="#"><i class="fa fa-search"></i>Carian</a></li>
                     <li><a href="<?= base_url('Admin/pendeposit'); ?>"><i class="fa fa-list"></i>Senarai Dokumen</a></li>
-                    <li><a href="#"><i class="fa fa-pencil"></i>Cipta Dokumen Baru</a></li>
+                    <li><a href="<?= base_url('Admin/Document/cipta_dokumen_baru'); ?>"><i class="fa fa-pencil"></i>Cipta Dokumen Baru</a></li>
                   </ul>
                   </li>
                     <?php endif; ?>
                     <li><a><i class="fa fa-cog"></i> Pentadbiran <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="<?= base_url('admin/employee/add'); ?>"><i class="fa fa-user"></i>Pengguna</a></li>
-                        <li><a href="<?= base_url('admin/employee'); ?>"><i class="fa fa-file-excel-o"></i>Inbois</a></li>
+                        <li><a href="<?= base_url('admin/invoice'); ?>"><i class="fa fa-file-excel-o"></i>Inbois</a></li>
                          <li><a href="<?= base_url('admin/employee'); ?>"><i class="fa fa-tags"></i>Log Aktiviti Pengguna</a></li>
                       </ul>
                   </li>
