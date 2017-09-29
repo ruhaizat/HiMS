@@ -17,12 +17,30 @@ class Profile extends CI_Controller {
     {
         $data['udata']=$this->session->userdata;
         $data['profile'] = $this->Model_profile->getAll();
+
         //$data['manufacturers'] = $this->model_manufacturer->getAllManufacturers();
         //$data['models'] = $this->model_car_model->getAllModels();
         
         //$this->load->view('view_vehicle', $data); 
-        $this->parser->parse('admin/view_profile', $data);   
+        $this->load->view('admin/view_profile', $data);   
     }
+	
+	public function kemaskini(){
+		//if($this->form_validation->run('editemp'))
+		//{
+			$nama_pengguna = $this->input->post('nama_pengguna');
+            $emel = $this->input->post('emel');
+            $no_tel = $this->input->post('no_tel');
+            $u_id = $this->input->post('u_id');
+			$this->Model_profile->update($nama_pengguna,$no_tel,$emel,$u_id);
+			redirect(base_url('admin/profile'));
+		//}
+		//else
+		//{
+		//	$data['message'] = validation_errors();  //data ta message name er lebel er kase pathay
+		//	$this->load->view('view_profile', $data);
+		//}
+	}
 
     public function add()
     {   

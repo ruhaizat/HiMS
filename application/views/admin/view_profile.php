@@ -22,26 +22,24 @@
                     </div>
                     <div class="x_content">
                         <label></label>
-                          <!--<?php foreach($profile as $profile): ?>-->
-                        <form method="post">
+                        <form method="post" action="<?php echo base_url();?>Admin/Profile/kemaskini">
                             <fieldset>
                                 <div class="form-group">
-                                    Nama : <input class="form-control" placeholder="Nama Pengguna" name="nama_pengguna" type="text" value="<?php echo $profile['nama_pengguna']; ?>" required>
+                                    Nama : <input class="form-control" placeholder="Nama Pengguna" name="nama_pengguna" type="text" value="<?php echo $profile->nama_pengguna; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    No. MyKad/Pasport : <input class="form-control" placeholder="Nombor Kad Pengenalan" name="no_mykad" type="text" value="<?php echo $profile['no_mykad']; ?>" readonly>
+                                    No. MyKad/Pasport : <input class="form-control" placeholder="Nombor Kad Pengenalan" name="no_mykad" type="text" value="<?php echo $profile->no_mykad; ?>" readonly>
                                 </div>
                                 <div class="form-group">
-                                    Alamat Emel : <input class="form-control" placeholder="Alamat Emel" name="emel" type="text" value="<?php echo $profile['emel']; ?>" required>
+                                    Alamat Emel : <input class="form-control" placeholder="Alamat Emel" name="emel" type="text" value="<?php echo $profile->emel; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    No. Tel Bimbit : <input class="form-control" placeholder="No Tel Bimbit" name="no_tel" type="text" value="<?php echo $profile['no_tel_bimbit']; ?>" required>
+                                    No. Tel Bimbit : <input class="form-control" placeholder="No Tel Bimbit" name="no_tel" type="text" value="<?php echo $profile->no_tel_bimbit; ?>" required>
                                 </div>
                                 <br/>
                                 <input type="submit" name="buttonSubmit" value="Save" />
-                                <input type="hidden" name="u_id" value="<?php echo $profile['id'] ?>">
+                                <input type="hidden" name="u_id" value="<?php echo $profile->id_pengguna; ?>">
                             </fieldset>
-                             <!--<?php endforeach; ?>-->
                         </form>
                     </div> <!-- /content --> 
                 </div><!-- /x-panel --> 

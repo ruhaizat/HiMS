@@ -18,19 +18,19 @@ class Model_profile extends CI_Model {
    public function getAll()
    {
       $idP = $this->session->userdata('id_pengguna');
-      $wherStr = "";
-      if(strlen($idP) == 12){
-         $icnum = substr($idP,0,6).'-'.substr($idP,6,2).'-'.substr($idP,8,4);
-         $wherStr = "where tbl_pengguna.no_mykad = '".$icnum."'";
-      }else{
-         $icnum = $this->session->userdata('id_pengguna');
-         $wherStr = "where tbl_pengguna.no_paspot_ekad = '".$icnum."'";
-      }
+      //$wherStr = "";
+      //if(strlen($idP) == 12){
+         //$icnum = substr($idP,0,6).'-'.substr($idP,6,2).'-'.substr($idP,8,4);
+         $wherStr = "where tbl_pengguna.id_pengguna = '".$idP."'";
+      //}else{
+      //   $icnum = $this->session->userdata('id_pengguna');
+      //   $wherStr = "where tbl_pengguna.no_paspot_ekad = '".$icnum."'";
+      //}
       
       $query = $this->db->query("select * 
       from tbl_pengguna
       left join tbl_kumppengguna on tbl_pengguna.kod_kumppengguna = tbl_kumppengguna.kod_kumppengguna ".$wherStr);
-      return $query->result_array();
+      return $query->row();
      }
 
    public function get($u_id)
@@ -40,19 +40,17 @@ class Model_profile extends CI_Model {
       return $result->row_array();
    }
    
-   public function update($nama_peserta,$no_mykad,$no_tel,$no_telbimbit,$emel,$u_id)
+   public function update($nama_pengguna,$no_tel,$emel,$u_id)
    {
       $data = array(
-            'nama_peserta' => $nama_peserta,
-            'no_mykad' => $no_mykad,
-            'no_tel' => $no_tel,
-            'no_telbimbit' => $no_telbimbit,
+            'nama_pengguna' => $nama_pengguna,
+            'no_tel_bimbit' => $no_tel,
             'emel' => $emel
         );
 
-      $this->db->where('id', $u_id);
+      $this->db->where('id_pengguna', $u_id);
       
-      $this->db->update('tbl_peserta', $data); 
+      $this->db->update('tbl_pengguna', $data); 
    }
 
 
