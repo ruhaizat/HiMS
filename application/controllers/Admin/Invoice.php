@@ -11,7 +11,9 @@ class Invoice extends CI_Controller {
 	}
 	public function index()
 	{	
-        $this->load->view('admin/view_cipta_invoice');  
+		$query = $this->db->query("SELECT * FROM tbl_kelompok;");
+		$data["KelompokList"] = $query->result();
+        $this->load->view('admin/view_cipta_invoice', $data);  
     }
 	
 	public function jana_invoice(){
@@ -27,8 +29,11 @@ class Invoice extends CI_Controller {
 		$data["disbursement"] = $this->input->post("disbursement");
 		$data["a_disbursement"] = 140 * $data["disbursement"];
 		
+		$nk = $data["no_kelompok"];
+		$query = $this->db->query("SELECT nama_kelompok FROM tbl_kelompok WHERE kod_kelompok = $nk;");
+		$data["nama_kelompok"] = $query->row()->nama_kelompok;
 		
-		$data = array(
+		$dataarr = array(
 		   'tarikh' => $tarikhArr[2].'-'.$tarikhArr[1].'-'.$tarikhArr[0],
 		   'no_kelompok' => $data["no_kelompok"],
 		   'no_inbois' => $data["no_inbois"],
@@ -37,7 +42,7 @@ class Invoice extends CI_Controller {
 		   'disbursement' => $data["disbursement"]
 		);
 
-		$this->db->insert('tbl_inbois', $data); 
+		$this->db->insert('tbl_inbois', $dataarr); 
 		
 		$html = $this->load->view('admin/view_jana_invoice', $data, true);
 		

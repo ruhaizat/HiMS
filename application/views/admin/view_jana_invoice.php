@@ -145,7 +145,7 @@
 								</tr>
 								<tr>
 									<td style="font-weight:bold;">Ref</td>
-									<td><?php echo $no_kelompok;?></td>
+									<td><?php echo $nama_kelompok;?></td>
 								</tr>
 								<tr>
 									<td style="font-weight:bold;">Payment Terms</td>
