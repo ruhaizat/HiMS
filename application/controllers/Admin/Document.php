@@ -180,7 +180,7 @@ class Document extends CI_Controller {
 				$ID = $row['id_pendeposit'];				
 				$query = $this->db->query("SELECT * FROM tbl_pendeposit WHERE id_pendeposit = ?", array($ID));
 				if ($query->num_rows()){
-					$this->db->update("tbl_pendeposit", $row, "id_pendeposit = '{$ID}'");
+					//$this->db->update("tbl_pendeposit", $row, "id_pendeposit = '{$ID}'");
 					$total_updates++;
 				} else {
 					$this->db->insert("tbl_pendeposit", $row);
@@ -195,6 +195,7 @@ class Document extends CI_Controller {
 		} else {
 			$data['upload_ok'] = false;
 			$data['upload_error'] = true;
+			$data['upload_error_message'] = $this->upload->display_errors();
 		}
 		
 		$data['tab'] = 'main';

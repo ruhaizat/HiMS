@@ -31,11 +31,11 @@
                                 <input type="submit" name="buttonProses" value="Proses" />
                             </fieldset>
 							<?php if ($upload_error): ?>
-								<p class="notice">Fail tidak sah</p>
+								<p class="notice">Fail tidak sah [Error Message: <?php echo $upload_error_message;?>]</p>
 							<?php endif; ?>
 							<?php if ($upload_ok): ?>
 								<p class="notice">
-									<?php echo number_format($total_updates); ?> Rekod Dikemaskini. <?php echo number_format($total_new); ?> Rekod Ditambah. 
+									<?php echo number_format($total_updates); ?> Rekod Tidak Ditambah Kerana Telah Wujud Di Dalam Sistem. <?php echo number_format($total_new); ?> Rekod Ditambah. 
 								</p>
 							<?php endif; ?>
                         </form>
