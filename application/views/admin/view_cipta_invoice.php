@@ -73,26 +73,26 @@
 										<td></td>
 										<td>1.1 Fii Perkhidmatan</td>
 										<td style="text-align:right;">35.00</td>
-										<td><input class="form-control" placeholder="Services Fees (Unit)" name="services_fees" type="number" value="" onkeyup="calculateClaim();" readonly required></td>
-										<td class="tdsf"></td>
+										<td><input class="form-control" placeholder="Services Fees (Unit)" name="services_fees" type="number" value="" onkeyup="calculateClaim();" style="text-align:center;" readonly required></td>
+										<td class="tdsf" style="text-align:right;"></td>
 									</tr>
 									<tr>
 										<td></td>
 										<td>1.2 GST 6%</td>
 										<td style="text-align:right;">2.10</td>
-										<td><input class="form-control" placeholder="GST 6% (Unit)" name="gst" type="number" value="" onkeyup="calculateClaim();" readonly required></td>
-										<td class="tdgst"></td>
+										<td><input class="form-control" placeholder="GST 6% (Unit)" name="gst" type="number" value="" onkeyup="calculateClaim();" style="text-align:center;" readonly required></td>
+										<td class="tdgst" style="text-align:right;"></td>
 									</tr>
 									<tr>
 										<td style="text-align:center;">2</td>
 										<td><i>Disbursement</i></td>
 										<td style="text-align:right;">140.00</td>
-										<td><input class="form-control" placeholder="Disbursement (Unit)" name="disbursement" type="number" onkeyup="calculateClaim();" value="" readonly required></td>
-										<td class="tdd"></td>
+										<td><input class="form-control" placeholder="Disbursement (Unit)" name="disbursement" type="number" onkeyup="calculateClaim();" value="" style="text-align:center;" readonly required></td>
+										<td class="tdd" style="text-align:right;"></td>
 									</tr>
 									<tr>
 										<td colspan="4" style="font-weight:bold;text-align:right;">JUMLAH TUNTUTAN</td>
-										<td class="tdtc"></td>
+										<td class="tdtc" style="text-align:right;"></td>
 									</tr>
 								</table>
                                 <br/>
@@ -150,11 +150,10 @@
 	}
 	function KelompokChange(){
 		var kod_kelompok = $("select[name=no_kelompok]").val();
-		alert(kod_kelompok);
 		
 		var datastr = '{"mode":"GetJumlahPeserta","kod_kelompok":"'+kod_kelompok+'"}';
 		$.ajax({
-			url: "<?php echo base_url();?>Invoice/ajax",
+			url: "<?php echo base_url();?>admin/Invoice/ajax",
 			type: "POST",
 			data: {"datastr":datastr},
 			success: function(data){

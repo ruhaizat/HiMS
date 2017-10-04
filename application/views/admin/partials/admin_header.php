@@ -79,7 +79,7 @@
                       <ul class="nav child_menu">
                         <li><a href="<?= base_url('Admin/pengguna'); ?>"><i class="fa fa-list"></i>Senarai Pengguna</a></li>
                         <li><a href="<?= base_url('Admin/invoice'); ?>"><i class="fa fa-list"></i>Senarai Inbois</a></li>
-                        <li><a href="<?= base_url('Admin/invoice'); ?>"><i class="fa fa-file-excel-o"></i>Cipta Inbois Baru</a></li>
+                        <li><a href="<?= base_url('Admin/invoice/cipta_invoice'); ?>"><i class="fa fa-file-excel-o"></i>Cipta Inbois Baru</a></li>
                          <li><a href="<?= base_url('admin/employee'); ?>"><i class="fa fa-tags"></i>Log Aktiviti Pengguna</a></li>
                       </ul>
                   </li>

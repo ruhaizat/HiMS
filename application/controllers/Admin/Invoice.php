@@ -9,7 +9,13 @@ class Invoice extends CI_Controller {
 	        redirect('login');
 	    }       
 	}
+	
+	
 	public function index()
+	{
+        $this->load->view('admin/view_senarai_invoice');  
+	}
+	public function cipta_invoice()
 	{	
 		$InboisNo = "";
 		$CurrYear = date("Y");
@@ -171,7 +177,6 @@ class Invoice extends CI_Controller {
 	}
 	
 	public function ajax(){
-		
 		$obj = json_decode($this->input->post("datastr"));
 		$mode = $obj->mode;
 		
