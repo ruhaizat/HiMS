@@ -98,6 +98,7 @@
 						<div class="controls">
 							<div class="main_input_box">         
 								<input class="btn btn-primary" type="button" value="Tukar Kata Laluan" onclick="changePwd();">
+								<input class="btn btn-primary" type="button" value="Set Semula" onclick="changePwd();">
 								
 							</div>
 						</div>

@@ -5,43 +5,43 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Senarai Pendeposit</h3>
+                <h3>Senarai Pengguna</h3>
             </div>
         </div>
         <div class="clearfix"></div>
-        
-       <div class="row-fluid">
+        <div class="row-fluid">
       <div class="span12">
+        
         <div class="widget-box">
           <!--<div class="widget-title">
                             <h5>Senarai Pengguna</h5>-->
                         </div>
-                        <h4>Carian Pendeposit</h4>  
-                        <br>
-                         <h4>Senarai Pendeposit</h4>  
-                        <br>            
-                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
+
+          <h4>Carian Pengguna</h4>
+
+                         <h4>Senarai Pengguna</h4>
+                           <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
                             <tr>
                                 <th>
                                     No
                                 </th>
                                 <th>
-                                    No Inbois
+                                    ID Pengguna
                                 </th>
                                 <th>
-                                    ID Pendeposit
+                                   Nama Pengguna
                                 </th>
                                 <th>
-                                   Nama Pendeposit
+                                    Emel
                                 </th>
                                 <th>
-                                    No Akaun TH
+                                    No Telefon Bimbit
                                 </th>
                                 <th>
-                                    No Aqad
+                                    Organisasi
                                 </th>
                                  <th>
-                                    Status Dokumen
+                                    Status Pengguna
                                 </th>
                                 <th colspan="2">
                                     Tindakan
@@ -51,14 +51,14 @@
                             {emp}
                             <tr>
                                 <td>{id}</td>
-                                <td>{no_inbois}</td>
-                                <td>{id_pendeposit}</td>
-                                <td>{nama_pendeposit}</td>
-                                <td >{no_TH}</td>
-                                <td>{no_aqad}</td>
-                                <td>{nama_sts}</td>
+                                <td>{id_pengguna}</td>
+                                <td>{nama_pengguna}<br>
+                                <td>{emel}</td>
+                                <td>{no_tel_bimbit}</td>
+                                <td>{kod_organisasi}</td>
+                                <td>{kod_sts_pengguna}</td>
                                 <td>
-                                    <a href=" <?php echo base_url(); ?>admin/pendeposit/edit/{id}" class="btn btn-primary btn-xs">Kemaskini</a>
+                                    <a href=" <?php echo base_url(); ?>admin/pengguna/edit/{id}" class="btn btn-primary btn-xs">Kemaskini</a>
                                     <!--<a onclick="return confirm('All records will be deleted, continue?')" href=" <?php echo base_url(); ?>admin/employee/delete/{id}" class="btn btn-danger btn-xs">Hapus</a>-->
                                 </td>
                             </tr>

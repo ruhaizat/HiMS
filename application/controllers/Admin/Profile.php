@@ -33,7 +33,7 @@ class Profile extends CI_Controller {
             $no_tel = $this->input->post('no_tel');
             $u_id = $this->input->post('u_id');
 			$this->Model_profile->update($nama_pengguna,$no_tel,$emel,$u_id);
-			redirect(base_url('admin/profile'));
+			redirect(base_url('Admin/Profile'));
 		//}
 		//else
 		//{
@@ -86,7 +86,7 @@ class Profile extends CI_Controller {
                 $nama_pengguna = $this->input->post('nama_pengguna');
                 $no_mykad = $this->input->post('no_mykad');
                 $no_tel_bimbit = $this->input->post('no_tel_bimbit');
-                $emel = md5($this->input->post('emel'));
+                $emel = ($this->input->post('emel'));
                 $this->model_profil2->insert($nama_pengguna,$no_mykad,$no_tel_bimbit,$emel,$u_id);
                 redirect(base_url('admin/profile'));
             }

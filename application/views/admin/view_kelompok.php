@@ -5,7 +5,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Senarai Pendeposit</h3>
+                <h3>Senarai Kelompok</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -16,9 +16,9 @@
           <!--<div class="widget-title">
                             <h5>Senarai Pengguna</h5>-->
                         </div>
-                        <h4>Carian Pendeposit</h4>  
+                        <h4>Carian Kelompok</h4>  
                         <br>
-                         <h4>Senarai Pendeposit</h4>  
+                         <h4>Senarai Kelompok</h4>  
                         <br>            
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
                             <tr>
@@ -26,22 +26,13 @@
                                     No
                                 </th>
                                 <th>
-                                    No Inbois
+                                    Nama Kelompok
                                 </th>
                                 <th>
-                                    ID Pendeposit
+                                    Jumlah Pendeposit
                                 </th>
                                 <th>
-                                   Nama Pendeposit
-                                </th>
-                                <th>
-                                    No Akaun TH
-                                </th>
-                                <th>
-                                    No Aqad
-                                </th>
-                                 <th>
-                                    Status Dokumen
+                                   Tarikh Muatnaik
                                 </th>
                                 <th colspan="2">
                                     Tindakan
@@ -50,15 +41,12 @@
                             
                             {emp}
                             <tr>
-                                <td>{id}</td>
-                                <td>{no_inbois}</td>
-                                <td>{id_pendeposit}</td>
-                                <td>{nama_pendeposit}</td>
-                                <td >{no_TH}</td>
-                                <td>{no_aqad}</td>
-                                <td>{nama_sts}</td>
+                                <td>{kod_kelompok}</td>
+                                  <td>{nama_kelompok}</td>
+                                <td>{jum_pendeposit}</td>
+                                <td>{trkh_muatnaik}</td>
                                 <td>
-                                    <a href=" <?php echo base_url(); ?>admin/pendeposit/edit/{id}" class="btn btn-primary btn-xs">Kemaskini</a>
+                                    <a href=" <?php echo base_url(); ?>admin/kelompok/edit/{id}" class="btn btn-primary btn-xs">Kemaskini</a>
                                     <!--<a onclick="return confirm('All records will be deleted, continue?')" href=" <?php echo base_url(); ?>admin/employee/delete/{id}" class="btn btn-danger btn-xs">Hapus</a>-->
                                 </td>
                             </tr>

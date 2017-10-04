@@ -25,17 +25,17 @@
                         <form method="post" enctype="multipart/form-data" action="<?php echo base_url();?>Admin/Document/muatnaik_pukal">
                             <fieldset>
                                 <div class="form-group">
-                                    Pilih CSV : <input name="file" type="file">
+                                    Pilih dokumen (format .CSV sahaja) : <input name="file" type="file">
                                 </div>
                                 <br/>
-                                <input type="submit" name="buttonProses" value="Proses" />
+                                <input type="submit" name="buttonProses" value="Muat Naik" />
                             </fieldset>
 							<?php if ($upload_error): ?>
 								<p class="notice">Fail tidak sah [Error Message: <?php echo $upload_error_message;?>]</p>
 							<?php endif; ?>
 							<?php if ($upload_ok): ?>
 								<p class="notice">
-									<?php echo number_format($total_updates); ?> Rekod Tidak Ditambah Kerana Telah Wujud Di Dalam Sistem. <?php echo number_format($total_new); ?> Rekod Ditambah. 
+									<?php echo number_format($total_updates); ?> Muat naik tidak berjaya! Rekod Pendeposit telah wujud di dalam sistem. <?php echo number_format($total_new); ?> Muat naik berjaya. 
 								</p>
 							<?php endif; ?>
                         </form>

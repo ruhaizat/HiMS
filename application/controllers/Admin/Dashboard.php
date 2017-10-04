@@ -11,11 +11,12 @@ class Dashboard extends CI_Controller {
         }
 		
 		//$this->load->model('model_vehicle');
-        $this->load->model('model_kursus');
+        //$this->load->model('model_kursus');
         $this->load->model('model_manufacturer');
         $this->load->model('model_car_model');
         $this->load->model('model_employee');
         $this->load->model('model_pendeposit');
+        $this->load->model('model_pengguna');
 	}
 
 	public function index()
@@ -23,7 +24,8 @@ class Dashboard extends CI_Controller {
 
         //$data['vehicles'] = $this->model_vehicle->getAll();
         $data['pendeposit'] = $this->model_pendeposit->getAll();
-        $data['kursus'] = $this->model_kursus->getAll();
+        $data['pengguna'] = $this->model_pengguna->getAll();
+       // $data['kursus'] = $this->model_kursus->getAll();
         //$data['customers'] = $this->model_vehicle->customerList();
         //$data['manufacturers_group'] = $this->model_vehicle->getAllByManufacturer();
         //$data['manufacturers_group_sold'] = $this->model_vehicle->getAllByManufacturerSold();
