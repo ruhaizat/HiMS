@@ -37,14 +37,14 @@
                             <fieldset>
 								<h2>Keterangan Inbois</h2>
                                 <div class="form-group">
-                                    No. Inbois : <input class="form-control" placeholder="No. Inbois" name="no_inbois" type="text" value="" required>
+                                    No. Inbois : <input class="form-control" placeholder="No. Inbois" name="no_inbois" type="text" value="<?php echo $InboisNo;?>" readonly required>
                                 </div>
                                 <div class="form-group">
                                     Tarikh : <input class="form-control" placeholder="Tarikh" name="tarikh" type="text" value="" required>
                                 </div>
                                 <div class="form-group">
                                     No. Kelompok : 
-									<select name="no_kelompok" class="form-control" required>
+									<select name="no_kelompok" class="form-control" onchange="KelompokChange();" required>
 										<option value="">Sila Pilih...</option>
 										<?php foreach($KelompokList as $eachKelompok):?>
 										<option value="<?php echo $eachKelompok->kod_kelompok;?>"><?php echo $eachKelompok->nama_kelompok;?></option>
@@ -52,7 +52,7 @@
 									</select>
                                 </div>
                                 <div class="form-group">
-                                    Jumlah Dokumen : <input class="form-control" placeholder="Jumlah Dokumen" name="jumlah_dokumen" type="text" value="" required>
+                                    Jumlah Dokumen : <input class="form-control" placeholder="Jumlah Dokumen" name="jumlah_dokumen" type="number" onkeyup="calculateClaim();" value="" readonly required>
                                 </div>
 								<br/>
 								<h2>Keterangan Tuntutan</h2>
@@ -72,21 +72,21 @@
 										<td></td>
 										<td>1.1 Fii Perkhidmatan</td>
 										<td>35.00</td>
-										<td><input class="form-control" placeholder="Services Fees (Unit)" name="services_fees" type="number" value="" onkeyup="calculateClaim();" required></td>
+										<td><input class="form-control" placeholder="Services Fees (Unit)" name="services_fees" type="number" value="" onkeyup="calculateClaim();" readonly required></td>
 										<td class="tdsf"></td>
 									</tr>
 									<tr>
 										<td></td>
 										<td>1.2 GST 6%</td>
 										<td>2.10</td>
-										<td><input class="form-control" placeholder="GST 6% (Unit)" name="gst" type="number" value="" onkeyup="calculateClaim();" required></td>
+										<td><input class="form-control" placeholder="GST 6% (Unit)" name="gst" type="number" value="" onkeyup="calculateClaim();" readonly required></td>
 										<td class="tdgst"></td>
 									</tr>
 									<tr>
 										<td style="text-align:center;">2</td>
 										<td><i>Disbursement</i></td>
 										<td>140.00</td>
-										<td><input class="form-control" placeholder="Disbursement (Unit)" name="disbursement" type="number" onkeyup="calculateClaim();" value="" required></td>
+										<td><input class="form-control" placeholder="Disbursement (Unit)" name="disbursement" type="number" onkeyup="calculateClaim();" value="" readonly required></td>
 										<td class="tdd"></td>
 									</tr>
 									<tr>
@@ -115,9 +115,17 @@
 		});
 	});		
 	function calculateClaim(){
-		var sf = $("input[name=services_fees]").val().replace(",","");
-		var gst = $("input[name=gst]").val().replace(",","");
-		var dis = $("input[name=disbursement]").val().replace(",","");
+		var jd = $("input[name=jumlah_dokumen]").val().replace(",","");
+		
+		//var sf = $("input[name=services_fees]").val().replace(",","");
+		//var gst = $("input[name=gst]").val().replace(",","");
+		//var dis = $("input[name=disbursement]").val().replace(",","");
+		$("input[name=services_fees]").val(jd);
+		$("input[name=gst]").val(jd);
+		$("input[name=disbursement]").val(jd);
+		var sf = jd;
+		var gst = jd;
+		var dis = jd;
 		
 		var TotalSF = parseFloat(35 * sf);
 		var TotalGST = parseFloat(2.1 * gst);
@@ -138,6 +146,21 @@
 		return n.toLocaleString().split(sep)[0]
 			+ sep
 			+ n.toFixed(decimals).split(sep)[1];
+	}
+	function KelompokChange(){
+		var kod_kelompok = $("select[name=no_kelompok]").val();
+		alert(kod_kelompok);
+		
+		var datastr = '{"mode":"GetJumlahPeserta","kod_kelompok":"'+kod_kelompok+'"}';
+		$.ajax({
+			url: "<?php echo base_url();?>Invoice/ajax",
+			type: "POST",
+			data: {"datastr":datastr},
+			success: function(data){
+				$("input[name=jumlah_dokumen]").val(data);
+				calculateClaim();
+			}
+		});
 	}
 </script>
 <?php if($this->session->flashdata('message') != NULL) : ?>

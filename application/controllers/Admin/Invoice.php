@@ -11,6 +11,37 @@ class Invoice extends CI_Controller {
 	}
 	public function index()
 	{	
+		$InboisNo = "";
+		$CurrYear = date("Y");
+		$query = $this->db->query("SELECT * FROM tbl_inbois_rn WHERE Year = $CurrYear;");
+		
+		if($query->num_rows() > 0){
+			$query = $this->db->query("SELECT MAX(RN) AS MRN FROM tbl_inbois_rn WHERE Year = $CurrYear;");
+			$NextRN = $query->row()->MRN + 1;
+			$InboisNo = "IH".sprintf("%04d", $NextRN)."/".$CurrYear;
+			
+			$data = array(
+			   "InboisNo"	=> $InboisNo,
+			   "RN"			=> $NextRN,
+			   "Year"		=> $CurrYear
+			);
+
+			$this->db->insert("tbl_inbois_rn", $data); 			
+		}else{
+			$NextRN = 1;
+			$InboisNo = "IH".sprintf("%04d", $NextRN)."/".$CurrYear;
+			
+			$data = array(
+			   "InboisNo"	=> $InboisNo,
+			   "RN"			=> $NextRN,
+			   "Year"		=> $CurrYear
+			);
+
+			$this->db->insert("tbl_inbois_rn", $data); 
+		}
+		
+		$data["InboisNo"] = $InboisNo;
+		
 		$query = $this->db->query("SELECT * FROM tbl_kelompok;");
 		$data["KelompokList"] = $query->result();
         $this->load->view('admin/view_cipta_invoice', $data);  
@@ -137,6 +168,20 @@ class Invoice extends CI_Controller {
         $this->model_pendeposit->delete($cid);
         $this->session->set_flashdata('message','Employee Successfully deleted.');
         redirect(base_url('admin/pendeposit'));
+	}
+	
+	public function ajax(){
+		
+		$obj = json_decode($this->input->post("datastr"));
+		$mode = $obj->mode;
+		
+		switch($mode){
+			case "GetJumlahPeserta":
+				$kod_kelompok = $obj->kod_kelompok;
+				$query = $this->db->query("SELECT COUNT(id) AS val FROM tbl_peserta WHERE kod_kelompok = $kod_kelompok;");
+				echo $query->row()->val;
+			break;
+		}
 	}
 }
 
