@@ -57,35 +57,38 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="<?= base_url('Admin/dashboard'); ?>"><i class="fa fa-home"></i> Utama </a></li>
-                  <?php if($this->session->userdata('kod_kumppengguna') != "1" ) : ?>
+                  <!--<?php if($this->session->userdata('kod_kumppengguna') != "1" ) : ?>
                             <li><a><i class="fa fa-user"></i> Profil Saya<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="<?php echo base_url() . 'Admin/profile'; ?>"><i class="fa fa-user"></i>Kemaskini Profil Saya</a></li>
                     <li><a href="<?php echo base_url() . 'Admin/ChangePwd'; ?>"><i class="fa fa-key"></i>Tukar Kata Laluan</a></li>
                     <li><a href="#"><i class="fa fa-th"></i>Log Aktiviti</a></li>
                   </ul>
-                  </li>
-                  <li><a><i class="fa fa-file"></i> Dokumen<span class="fa fa-chevron-down"></span></a>
+                  </li>-->
+                  <li><a><i class="fa fa-file"></i>Pendeposit<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="#"><i class="fa fa-search"></i>Carian</a></li>
-                    <li><a href="<?= base_url('Admin/pendeposit'); ?>"><i class="fa fa-list"></i>Senarai Dokumen</a></li>
-                    <li><a href="<?= base_url('Admin/Document/cipta_dokumen_baru'); ?>"><i class="fa fa-pencil"></i>Cipta Dokumen Baru</a></li>
+                    <!--<li><a href="#"><i class="fa fa-search"></i>Carian</a></li>-->
+                    <li><a href="<?= base_url('Admin/pendeposit'); ?>"><i class="fa fa-list"></i>Senarai Pendeposit</a></li>
+                     <li><a href="<?= base_url('Admin/kelompok'); ?>"><i class="fa fa-list"></i>Senarai Kelompok</a></li>
+                    <li><a href="<?= base_url('Admin/Document/cipta_dokumen_baru'); ?>"><i class="fa fa-pencil"></i>Cipta Kelompok Baru</a></li>
+                    <li><a href="<?= base_url('Admin/borang'); ?>"><i class="fa fa-list"></i>Senarai Borang</a></li>                   
                   </ul>
                   </li>
                     <?php endif; ?>
                     <li><a><i class="fa fa-cog"></i> Pentadbiran <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="<?= base_url('admin/employee/add'); ?>"><i class="fa fa-user"></i>Pengguna</a></li>
-                        <li><a href="<?= base_url('admin/invoice'); ?>"><i class="fa fa-file-excel-o"></i>Inbois</a></li>
+                        <li><a href="<?= base_url('Admin/pengguna'); ?>"><i class="fa fa-list"></i>Senarai Pengguna</a></li>
+                        <li><a href="<?= base_url('Admin/invoice'); ?>"><i class="fa fa-list"></i>Senarai Inbois</a></li>
+                        <li><a href="<?= base_url('Admin/invoice'); ?>"><i class="fa fa-file-excel-o"></i>Cipta Inbois Baru</a></li>
                          <li><a href="<?= base_url('admin/employee'); ?>"><i class="fa fa-tags"></i>Log Aktiviti Pengguna</a></li>
                       </ul>
                   </li>
-                 <li><a><i class="fa fa-table"></i> Vehicles <span class="fa fa-chevron-down"></span></a>
+                 <!--<li><a><i class="fa fa-table"></i> Vehicles <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url('admin/vehicles'); ?>">All Vehicles</a></li>
                       <li><a href="<?= base_url('admin/vehicles/soldlist'); ?>">Sold Vehicles</a></li>
                     </ul>
-                  </li>
+                  </li>-->
                 </ul>
               </div>
             </div>
@@ -126,9 +129,11 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     
-                    <li><a href="#"><i class="fa fa-user pull-right"></i> Profil Saya</a></li>
+                    
+                    <li><a href="<?php echo base_url() . 'Admin/Profile'; ?>"><i class="fa fa-key pull-right"></i> Profil Saya</a></li>
                     <li><a href="<?php echo base_url() . 'Admin/ChangePwd'; ?>"><i class="fa fa-key pull-right"></i> Tukar Kata Laluan</a></li>
-                        <li><a href="<?php echo base_url() . 'Admin/dashboard/logout'; ?>"><i class="fa fa-sign-out pull-right"></i> Log Keluar</a></li>
+                    <li><a href="<?php echo base_url() . 'Admin/ChangePwd'; ?>"><i class="fa fa-key pull-right"></i> Log Aktiviti Saya</a></li>
+                    <li><a href="<?php echo base_url() . 'Admin/dashboard/logout'; ?>"><i class="fa fa-sign-out pull-right"></i> Log Keluar</a></li>
                   </ul>
                 </li>
               </ul>

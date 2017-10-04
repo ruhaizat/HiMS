@@ -2,7 +2,7 @@
 
 class Model_kursus extends CI_Model {
 
-	public function insert($featured,$tajuk_kursus,$jenis_kursus,$kursus_id,$status,$jenis_sijil,$nama_peserta,$no_mykad,$tarikh1_kursus,$tarikh2_kursus,$status,$no_siri)
+	public function insert($featured,$tajuk_kursus,$jenis_kursus,$kursus_id,$status,$jenis_sijil,$nama_peserta,$no_mykad,$tarikh1_kursus,$tarikh2_kursus,$no_siri)
 	{
 		$data = array(
 			'featured' => $featured,

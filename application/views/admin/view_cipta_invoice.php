@@ -15,7 +15,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Inbois</h3>
+                <h3>Cipta Inbois Baru</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -24,18 +24,18 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Cipta Inbois Baru</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                        <h2>Keterangan Inbois</h2>
+                        <!--<ul class="nav navbar-left panel_toolbox">
                             <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-                        </ul>
+						    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                        </ul>-->
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <label></label>
                         <form method="post" action="<?php echo base_url();?>Admin/Invoice/jana_invoice">
                             <fieldset>
-								<h2>Keterangan Inbois</h2>
+								<!--<h2>Keterangan Inbois</h2>-->
                                 <div class="form-group">
                                     No. Inbois : <input class="form-control" placeholder="No. Inbois" name="no_inbois" type="text" value="<?php echo $InboisNo;?>" readonly required>
                                 </div>
@@ -55,7 +55,8 @@
                                     Jumlah Dokumen : <input class="form-control" placeholder="Jumlah Dokumen" name="jumlah_dokumen" type="number" onkeyup="calculateClaim();" value="" readonly required>
                                 </div>
 								<br/>
-								<h2>Keterangan Tuntutan</h2>
+								
+								<h2>Keterangan Fii</h2>
 								<table id="tblTuntutan">
 									<tr style="background:#2A3F54;color:white;font-weight:bold;text-align:center;">
 										<td style="vertical-align:top;">#</td>
@@ -66,26 +67,26 @@
 									</tr>
 									<tr>
 										<td style="text-align:center;">1</td>
-										<td colspan="4">CHARGES (termasuk GST)</td>
+										<td colspan="4">FII (termasuk GST)</td>
 									</tr>
 									<tr>
 										<td></td>
 										<td>1.1 Fii Perkhidmatan</td>
-										<td>35.00</td>
+										<td style="text-align:right;">35.00</td>
 										<td><input class="form-control" placeholder="Services Fees (Unit)" name="services_fees" type="number" value="" onkeyup="calculateClaim();" readonly required></td>
 										<td class="tdsf"></td>
 									</tr>
 									<tr>
 										<td></td>
 										<td>1.2 GST 6%</td>
-										<td>2.10</td>
+										<td style="text-align:right;">2.10</td>
 										<td><input class="form-control" placeholder="GST 6% (Unit)" name="gst" type="number" value="" onkeyup="calculateClaim();" readonly required></td>
 										<td class="tdgst"></td>
 									</tr>
 									<tr>
 										<td style="text-align:center;">2</td>
 										<td><i>Disbursement</i></td>
-										<td>140.00</td>
+										<td style="text-align:right;">140.00</td>
 										<td><input class="form-control" placeholder="Disbursement (Unit)" name="disbursement" type="number" onkeyup="calculateClaim();" value="" readonly required></td>
 										<td class="tdd"></td>
 									</tr>

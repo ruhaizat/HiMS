@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class model_pendeposit extends CI_Model {
+class Model_pendeposit extends CI_Model {
 
 	public function insert($id_pendeposit,$no_aqad,$no_TH,$nama_pendeposit,$no_mykad,$alamat1,$alamat2,$bandar,$poskod,$kod_negeri,$no_tel_rumah,$no_tel_bimbit,$kod_batch,$kod_invoice)
 	{
@@ -30,7 +30,8 @@ class model_pendeposit extends CI_Model {
 	
 		$query = $this->db->query("select * 
 		from tbl_pendeposit
-		left join tbl_status on tbl_pendeposit.status = tbl_status.kod_sts ");
+		left join tbl_status on tbl_pendeposit.status = tbl_status.kod_sts");
+
 		
 		//$this->db->select('*');
         //$this->db->from('tbl_peserta');
