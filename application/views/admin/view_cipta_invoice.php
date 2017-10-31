@@ -10,6 +10,7 @@
 	padding: 10px;
 }
 </style>
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/select2.css" />
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -36,6 +37,8 @@
                         <form method="post" action="<?php echo base_url();?>Admin/Invoice/jana_invoice">
                             <fieldset>
 								<!--<h2>Keterangan Inbois</h2>-->
+								<input type="hidden" name="year" value="<?php echo $year;?>" />
+								<input type="hidden" name="rn" value="<?php echo $rn;?>" />
                                 <div class="form-group">
                                     No. Inbois : <input class="form-control" placeholder="No. Inbois" name="no_inbois" type="text" value="<?php echo $InboisNo;?>" readonly required>
                                 </div>
@@ -43,9 +46,8 @@
                                     Tarikh : <input class="form-control" placeholder="Tarikh" name="tarikh" type="text" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    No. Kelompok : 
-									<select name="no_kelompok" class="form-control" onchange="KelompokChange();" required>
-										<option value="">Sila Pilih...</option>
+                                    No. Kelompok : <br/>
+									<select id="no_kelompok" name="no_kelompok[]" onchange="KelompokChange();" multiple required style="width:100%;height:34px;">
 										<?php foreach($KelompokList as $eachKelompok):?>
 										<option value="<?php echo $eachKelompok->kod_kelompok;?>"><?php echo $eachKelompok->nama_kelompok;?></option>
 										<?php endforeach;?>
@@ -109,11 +111,13 @@
 <!-- /page content -->
 
 <?php $this->load->view('admin/partials/admin_footer'); ?>
+<script src="<?php echo base_url();?>assets/js/select2.min.js"></script> 
 <script>
 	$( document ).ready(function() {
 		$("input[name=tarikh]").datepicker({
 			"format": "dd/mm/yyyy"
 		});
+		$("select").select2();
 	});		
 	function calculateClaim(){
 		var jd = $("input[name=jumlah_dokumen]").val().replace(",","");
@@ -149,11 +153,11 @@
 			+ n.toFixed(decimals).split(sep)[1];
 	}
 	function KelompokChange(){
-		var kod_kelompok = $("select[name=no_kelompok]").val();
+		var kod_kelompok = $("#no_kelompok").val();
 		
 		var datastr = '{"mode":"GetJumlahPeserta","kod_kelompok":"'+kod_kelompok+'"}';
 		$.ajax({
-			url: "<?php echo base_url();?>admin/Invoice/ajax",
+			url: "<?php echo base_url();?>Admin/Invoice/ajax",
 			type: "POST",
 			data: {"datastr":datastr},
 			success: function(data){

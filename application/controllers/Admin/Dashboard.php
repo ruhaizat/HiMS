@@ -24,7 +24,7 @@ class Dashboard extends CI_Controller {
 
         //$data['vehicles'] = $this->model_vehicle->getAll();
         $data['pendeposit'] = $this->model_pendeposit->getAll();
-        $data['pengguna'] = $this->model_pengguna->getAll();
+       // $data['pengguna'] = $this->model_pengguna->getAll();
        // $data['kursus'] = $this->model_kursus->getAll();
         //$data['customers'] = $this->model_vehicle->customerList();
         //$data['manufacturers_group'] = $this->model_vehicle->getAllByManufacturer();

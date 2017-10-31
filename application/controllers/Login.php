@@ -39,6 +39,7 @@ class Login extends CI_Controller {
         
         if($result){
             foreach ($result as $user){
+				$this->Model_log->LogActivity($user->id,"Login","User successfully login");
                 $s = array();
                 $s['id'] = $user->id;
                 $s['id_pengguna'] = $user->id_pengguna;

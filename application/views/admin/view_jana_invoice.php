@@ -51,20 +51,27 @@
 .font16{
 	font-size:16px;
 }
+.font18{
+	font-size:18px;
+}
 </style>
 </head>
 <body>
-<div class="font16" style="font-weight:bold;font-family:Arial;position:absolute;left:205px;top:170px;"><?php echo $tarikh;?></div>
+<div class="font18" style="font-weight:bold;font-family:Arial;position:absolute;left:190px;top:160px;"><?php echo $tarikh;?></div>
+<div class="font18" style="font-weight:bold;font-family:Arial;position:absolute;left:60px;top:150px;">TAX INVOICE</div>
+<div class="font18" style="font-weight:bold;font-family:Arial;position:absolute;left:180px;top:116px;">|</div>
+<div class="font18" style="font-weight:bold;font-family:Arial;position:absolute;left:180px;top:133px;">|</div>
+<div class="font18" style="font-weight:bold;font-family:Arial;position:absolute;left:190px;top:140px;">IMARAH HIBAH</div>
+<div style="position:absolute;left:610px;"><img src="<?php echo base_url();?>assets/images/logohibah1.png" width="150" height="180" /></div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <div class="container">
 	<table style="font-family:Arial;">
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td rowspan="2" style="position:relative;left:20px;"><div><img src="<?php echo base_url();?>assets/images/logohibah1.png" width="150" height="180" /></div></td>
-		</tr>
-		<tr>
-			<td colspan="3"><br/><br/><br/><br/><br/><img src="<?php echo base_url();?>assets/images/wordimarahhibah.png" width="290" height="55"/></td>
+			<td colspan="3"><br/><br/><br/><br/><br/></td>
 		</tr>
 		<tr>
 			<td colspan="4">
@@ -77,15 +84,15 @@
 						<td class="tborder" style="vertical-align:top;">
 							<table>
 								<tr>
-									<td style="font-weight:bold;">Customer</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Customer</td>
 									<td style="font-weight:bold;">TABUNG HAJI</td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold;">Customer ID#</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Customer ID#</td>
 									<td>THIM</td>
 								</tr>
 								<tr>
-									<td style="vertical-align:top;font-weight:bold;">Address</td>
+									<td style="vertical-align:top;font-weight:bold;padding-left:-2px !important;">Address</td>
 									<td>BAHAGIAN SIMPANAN DAN<br/>
 										PENGELUARAN<br/>
 										JABATAN KHIDMAT<br/>
@@ -95,7 +102,7 @@
 										50400 KUALA LUMPUR</td>
 								</tr>
 								<tr>
-									<td style="vertical-align:top;font-weight:bold;">Phone No</td>
+									<td style="vertical-align:top;font-weight:bold;padding-left:-2px !important;">Phone No</td>
 									<td>+603 2054 200 / +603 2054 2233<br/>
 										/ +603 2054 2400</td>
 								</tr>
@@ -104,11 +111,11 @@
 						<td class="tborder" style="vertical-align:top;">
 							<table>
 								<tr>
-									<td style="font-weight:bold;">Recipient</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Recipient</td>
 									<td style="font-weight:bold;">IMARAH HIBAH SDN BHD</td>
 								</tr>
 								<tr>
-									<td style="vertical-align:top;font-weight:bold;">Address</td>
+									<td style="vertical-align:top;font-weight:bold;padding-left:-2px !important;">Address</td>
 									<td>NO 1D, 4TH FLOOR, JALAN<br/>
 										MEDAN PUSAT 2D, 3B CURVE<br/>
 										BUSINESS PARK, PERSIARAN<br/>
@@ -117,16 +124,16 @@
 										SELANGOR DARUL EHSAN.</td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold;">Phone No</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Phone No</td>
 									<td>03-8928 9845/03-8925 7385/4385</td>
 								</tr>
 								<tr>
-									<td style="vertical-align:top;font-weight:bold;">Account No</td>
+									<td style="vertical-align:top;font-weight:bold;padding-left:-2px !important;">Account No</td>
 									<td><b>BIMB 14032010096540</b><br/>
 										(Jalan Tun Razak Branch)</td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold;">GST No</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">GST No</td>
 									<td style="font-weight:bold;">001248579584</td>
 								</tr>
 							</table>
@@ -136,35 +143,35 @@
 						<td class="tborder" style="vertical-align:top;">
 							<table>
 								<tr>
-									<td style="font-weight:bold;">Date</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Date</td>
 									<td><?php echo $tarikh;?></td>
 								</tr>
 								<tr>
-									<td style="vertical-align:top;font-weight:bold;">Attention to</td>
+									<td style="vertical-align:top;font-weight:bold;padding-left:-2px !important;">Attention to</td>
 									<td>TN HJ MOHD RIDZUAN B HJ WAHI</td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold;">Ref</td>
+									<td style="vertical-align:top;font-weight:bold;padding-left:-2px !important;">Ref</td>
 									<td><?php echo $nama_kelompok;?></td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold;">Payment Terms</td>
-									<td>CHEQUE/TT</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Payment Terms</td>
+									<td style="vertical-align:top;">CHEQUE/TT</td>
 								</tr>
 							</table>
 						</td>
 						<td class="tborder" style="vertical-align:top;">
 							<table>
 								<tr>
-									<td style="font-weight:bold;">Date</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Date</td>
 									<td><?php echo $tarikh;?></td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold;">Title</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Title</td>
 									<td>HIBAH AMANAH TH</td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold;">Invoice No</td>
+									<td style="font-weight:bold;padding-left:-2px !important;">Invoice No</td>
 									<td><?php echo $no_inbois;?></td>
 								</tr>
 							</table>
@@ -222,16 +229,19 @@
 			<td colspan="4" class="font11"><br/></td>
 		</tr>
 		<tr>
+			<td colspan="4" class="font11"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" class="font11"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" class="font11"><br/></td>
+		</tr>
+		<tr>
 			<td colspan="4" class="font11" style="font-weight:bold;">HAJI MOHD NAJIB BIN ABAS</td>
 		</tr>
 		<tr>
 			<td colspan="4" class="font11" style="font-weight:bold;">MANAGING DIRECTOR</td>
-		</tr>
-		<tr>
-			<td colspan="4" class="font11"><br/></td>
-		</tr>
-		<tr>
-			<td colspan="4" class="font11"><br/></td>
 		</tr>
 		<tr>
 			<td colspan="4" class="font11" style="text-align:center;color:grey;">No 1D, 4th Floor, Jalan Medan Pusat 2D, 3B Curve Business Park, Persiaran Bangi Section 9,</td>

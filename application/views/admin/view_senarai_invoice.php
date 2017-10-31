@@ -30,8 +30,8 @@
                         <h2>Senarai Inbois</h2>
                         <div class="clearfix"></div>
                     </div>
-					<div class="x_content">
-                        <table class="table table-bordered data-table">
+					<div class="widget-content nopadding">
+                        <table id="tblSenarai" class="table table-bordered data-table">
 						  <thead>
 							<tr>
 							  <th>No.</th>
@@ -110,8 +110,6 @@
     });
 </script>
 <?php endif ?>
-<script src="<?php echo base_url();?>assets/js/jquery.flot.min.js"></script> 
-<script src="<?php echo base_url();?>assets/js/jquery.flot.resize.min.js"></script> 
 <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script> 
 <script src="<?php echo base_url();?>assets/js/jquery.ui.custom.js"></script> 
 <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script> 

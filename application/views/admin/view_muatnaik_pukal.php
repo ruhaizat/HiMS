@@ -4,7 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Muat Naik Pukal</h3>
+                <h3>Cipta Kelompok Baru</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -39,9 +39,79 @@
 								</p>
 							<?php endif; ?>
                         </form>
-                    </div> <!-- /content --> 
                 </div><!-- /x-panel --> 
+               </div> <!-- /content --> 
+        <div class="clearfix"></div>
+
+        <hr>
+        <!-- all models --> 
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Senarai Pendeposit</h2>
+                        <!--TUTUP SAT---<ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                        </ul>-->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div style="padding-left: 25%">
+
+		</div>
+						
+						
+						<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>No. Inbois</th>
+                                    <th>ID Pendeposit<br></th>
+                                    <th>Nama Pendeposit<br></th>
+                                   	<th>No Akaun TH</th>
+                                    <th>No Aqad</th>
+                                    <th>Status Dokumen</th>
+                                    <th>Tindakan</th>
+									
+                                    
+                                </tr>
+                            </thead>
+                           
+                            <tbody>
+            <?php
+                if(isset($view_data) && is_array($view_data) && count($view_data)): $i=1;
+                foreach ($view_data as $key => $data) { 
+              ?>
+              <tr <tr <?php if($i%2==0){echo 'class="even"';}else{echo'class="odd"';}?>>
+                  <td><?php echo $i; ?></td>
+                  <td><?php echo $data['no_inbois']; ?></td>
+                  <td><?php echo $data['id_pendeposit']; ?></td>
+                  <td><?php echo $data['nama_pendeposit']; ?></td>
+                  <td><?php echo $data['no_TH']; ?></td>
+                  <td><?php echo $data['no_aqad']; ?></td>
+                  <td><?php echo $data['nama_sts']; ?></td>
+                    
+                  <td><a href="<?php echo site_url('Admin/Pendeposit/edit_data/'. $data['id'].''); ?>" class="btn btn-primary btn-xs">Kemaskini</a>           
+                <a href="<?php echo site_url('Admin/Pendeposit/view_imbasan/'. $data['id'].''); ?>" class="btn btn-danger btn-xs">Imbasan</a></td>
+              </tr>
+                <?php
+                    $i++;
+                      }
+                  else:
+                ?>
+              <tr>
+                    <td colspan="8" align="center" >Tiada Maklumat</td>
+                </tr>
+                <?php
+                endif;
+              ?>
+          </tbody>
+                        </table>               
             </div> <!-- /col --> 
+
+
+                    
         </div> <!-- /row --> 
     </div>
 </div> <!-- /.col-right --> 

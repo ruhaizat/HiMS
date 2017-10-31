@@ -32,23 +32,26 @@ class ChangePwd extends CI_Controller {
 		
 		switch($mode){
 			case "CheckCurrentPassword":
+				$this->load->library('bcrypt');
 				$UserID = $obj->UserID;
 				$CurrentPwd = $obj->Password;
 				$query = $this->db->query("SELECT * FROM tbl_pengguna WHERE id = '$UserID'");
 				$userData = $query->row();
-					
-				if($userData->kata_laluan != $CurrentPwd) {
-					echo "Current password wrong.";
-				}else{
+				
+				if($this->bcrypt->check_password($CurrentPwd, $userData->kata_laluan) == true) {
 					echo "Passed";
+				}else{
+					echo "Current password wrong.";
 				}
 			break;
 			case "UpdatePassword":
+				$this->load->library('bcrypt');
 				$UserID = $obj->UserID;
 				$NewPwd = $obj->Password;
+				$hash = $this->bcrypt->hash_password($NewPwd);
 				
 				$dataarray = array(
-					"kata_laluan" => $NewPwd
+					"kata_laluan" => $hash
 				);
 
 				$this->db->set($dataarray);

@@ -1,93 +1,101 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kelompok extends CI_Controller {
+
 
 	public function __construct()
 	{
 		parent::__construct();
-	    if ( ! $this->session->userdata('isLogin') || ($this->session->userdata('kod_kumppengguna') == "1" )) { 
-	        redirect('login');
-	    }
-
-		//$this->load->database();
-		$this->load->model('model_kelompok');
-                
+		$this->load->helper('url');                    /***** LOADING HELPER TO AVOID PHP ERROR ****/
+		$this->load->model('Model_kelompok','kelompok'); /* LOADING MODEL * Model_pendeposit as pendeposit */
 	}
+
+
+	/**************************  START FETCH OR VIEW FORM DATA ***************/
 	public function index()
-	{	
-        $data['emp'] = $this->model_kelompok->getAll();
+	{
+		$this->data['view_data']= $this->kelompok->view_data();
+	    $this->load->view('admin/view_kelompok', $this->data, FALSE);
+	}
+	/****************************  END FETCH OR VIEW FORM DATA ***************/
 
-        $this->parser->parse('admin/view_kelompok', $data);  
+
+	/****************************  START OPEN ADD FORM FILE ******************/
+	public function add_data()
+	{
+		$this->load->view('admin/view_tambahkelompok');
+	}
+	/****************************  END OPEN ADD FORM FILE ********************/
+
+    
+    /****************************  START INSERT FORM DATA ********************/
+    public function submit_data()
+    {
+    $data = array('kod_kelompok' => $this->input->post('kod_kelompok'),
+			      'nama_kelompok' => $this->input->post('nama_kelompok'),
+			       'rujukan_TH' => $this->input->post('rujukan_TH'),			      
+			        'jum_pendeposit' => $this->input->post('nama_pendeposit'),
+			          'trkh_terima' => $this->input->post('trkh_terima'),
+			           'trkh_muatnaik' => $this->input->post('trkh_muatnaik'),
+			            'sts_kelompok' => $this->input->post('sts_kelompok')
+			         
+			      );
+    
+    $insert = $this->kelompok->insert_data($data);
+    $this->session->set_flashdata('message', 'Makluamt anda berjaya disimpan.');
+    redirect('Admin/kelompok');
     }
+    /****************************  END INSERT FORM DATA ************************/
 
-	public function add()
-	{	
-		if(!$this->input->post('buttonSubmit'))
-		{
-			$data['message'] = '';
-			$this->load->view('admin/view_tambahkelompok', $data);
-		}
-		else
-		{
-			//$this->load->library('form_validation');
-			if($this->form_validation->run('addemp'))
-			{
-				$id_kelompok = $this->input->post('id_kelompok');
-                $nama_kelompok = $this->input->post('nama_kelompok');
-                $jum_pendeposit = $this->input->post('jum_pendeposit');
-   				$trkh_muatnaik = $this->input->post('trkh_muatnaik');	
-				$trkh_kemaskini = $this->input->post('trkh_kemaskini');				
-				$this->model_pengguna->insert($$id_kelompok,$nama_kelompok,$jum_pendeposit,$trkh_muatnaik,$trkh_kemaskini);
-				$this->session->set_flashdata('message','Employee Successfully Created.');
-				redirect(base_url('admin/pengguna'));
-			}
-			else
-			{
-				$data['message'] = validation_errors();
-				$this->load->view('admin/view_tambahkelompok', $data);
-			}
-		}
-	}
 
-	public function edit($cid)
-	{	
-		if(!$this->input->post('buttonSubmit'))
-		{
-			$data['message'] = '';
-			$userRow = $this->model_kelompok->get($cid);
-			$data['userRow'] = $userRow;
-			$this->load->view('admin/view_editkelompok', $data);
-		}
-		else
-		{
-			if($this->form_validation->run('editemp'))
-			{
-				$f_name = $this->input->post('f_name');
-                $l_name = $this->input->post('l_name');
-                $u_bday = $this->input->post('u_bday');
-                $u_position = $this->input->post('u_position');
-                $u_type = $this->input->post('u_type');
-                $u_pass = md5($this->input->post('u_pass'));
-                $u_mobile = $this->input->post('u_mobile');
-                $u_gender = $this->input->post('u_gender');
-                $u_address = $this->input->post('u_address');
-				$u_id = $this->input->post('id_pendeposit');
-				$this->model_kelompok->update($f_name,$l_name,$u_bday,$u_position,$u_type,$u_pass,$u_mobile,$u_gender,$u_address,$u_id);
-				redirect(base_url('admin/kelompok'));
-			}
-			else
-			{
-				$data['message'] = validation_errors();  //data ta message name er lebel er kase pathay
-				$this->load->view('view_kelompok', $data);
-			}
-		}
-	}
+    /****************************  START FETCH OR VIEW FORM DATA ***************/
+    public function view_data()
+    {
+    $this->data['view_data']= $this->welcome->view_data();
+    $this->load->view('admin/view_kelompok', $this->data, FALSE);
+    }
+    /****************************  END FETCH OR VIEW FORM DATA ***************/
 
-	public function delete($cid)
-	{	
-        $this->model_kelompok->delete($cid);
-        $this->session->set_flashdata('message','Kelompok telah berjaya dihapuskan.');
-        redirect(base_url('admin/kelompok'));
-	}
+    
+    /****************************  START OPEN EDIT FORM WITH DATA *************/
+    public function edit_data($id)
+    {
+    $this->data['edit_data']= $this->kelompok->edit_data($id);
+    $this->data['senarai_pendeposit']= $this->Model_pendeposit->get_by_kelompok($id);
+    $this->load->view('admin/view_kemaskinikelompok', $this->data, FALSE);
+    }
+    /****************************  END OPEN EDIT FORM WITH DATA ***************/
+
+
+    /****************************  START UPDATE DATA *************************/
+    public function update_data($id)
+    {
+    $data = array('kod_kelompok' => $this->input->post('kod_kelompok'),
+			      'nama_kelompok' => $this->input->post('nama_kelompok'),
+			       'rujukan_TH' => $this->input->post('rujukan_TH'),
+			        'jum_pendeposit' => $this->input->post('nama_pendeposit'),
+			         'trkh_terima' => $this->input->post('trkh_terima'),
+			          'trkh_muatnaik' => $this->input->post('trkh_muatnaik'),
+			           'sts_kelompok' => $this->input->post('sts_kelompok')
+			         
+			      );
+    $this->db->where('kod_kelompok', $id);
+    $this->db->update('tbl_kelompok', $data);
+    $this->session->set_flashdata('message', 'Maklumat anda berjaya dikemaskini.');
+    redirect('Admin/kelompok');
+    }
+    /****************************  END UPDATE DATA ****************************/
+
+
+    /****************************  START DELETE DATA **************************/
+    public function delete_data($id)
+    {  
+    $this->db->where('kod_kelompok', $id);
+    $this->db->delete('tbl_kelompok');
+    $this->session->set_flashdata('message', 'Maklumat anda berjaya dihapuskan.');
+    redirect('Admin/kelompok');
+    }
+    /****************************  END DELETE DATA ***************************/
+
 }
-

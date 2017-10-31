@@ -1,46 +1,36 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+class Model_kelompok extends CI_Model
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-class Model_kelompok extends CI_Model {
+   /**************************  START INSERT QUERY ***************/
+    public function insert_data($data){
+        $this->db->insert('tbl_kelompok', $data); 
+        return TRUE;
+    }
+    /**************************  END INSERT QUERY ****************/
 
-	public function insert($id_pengguna,$nama_pengguna,$no_mykad,$emel,$no_tel_bimbit,$kod_organisasi,$kod_kumppengguna,$kod_stspengguna,$tarikh_daftar)
+    
+    /*************  START SELECT or VIEW ALL QUERY ***************/
+    public function view_data(){
+        $query=$this->db->query("SELECT *
+								 FROM tbl_kelompok");
+
+		return $query->result_array();
+    }
+    /***************  END SELECT or VIEW ALL QUERY ***************/
+    
+    public function getAll()
 	{
-		$data = array(
-			   'id_pengguna' => $id_pengguna,
-               'nama_pengguna' => $nama_pengguna,
-			   'no_mykad' => $no_mykad,
-			   'emel' => $emel,
-			   'no_tel_bimbit' => $no_tel_bimbit,
-			   'kod_organisasi' => $kod_organisasi,
-			   'kod_kumppengguna' => $kod_kumppengguna,
-			   'kod_stspengguna' => $kod_stspengguna,
-			   'tarikh_daftar' => $tarikh_daftar
-            );
-		$this->db->insert('tbl_pengguna', $data); 
-	}
-public function test($search_term='default'){
-
-
-
-   $this->db->select('*');
-   $this->db->from('voterinfo');
-   $this->db->like('firstName', $search_term['firstName']);
-   $this->db->or_like('lastName', $search_term['lastName']);
-   $this->db->or_like('street', $search_term['street']);
-   $this->db->or_like('dob', $search_term['dob']);
-   $query = $this->db->get();
-
-
-   return $query->result_array();
-
-}
-	public function getAll()
-	{
-		// $result = $this->db->get('pengguna');
-		$result = $this->db->get('tbl_pengguna');
+		// $result = $this->db->get('kelompok');
+		$result = $this->db->get('tbl_kelompok');
 	
 		$query = $this->db->query("select * 
-		from tbl_pengguna
-		left join tbl_sts_pengguna on tbl_pengguna.kod_sts_pengguna = tbl_sts_pengguna.kod_sts_pengguna");
+		from tbl_kelompok
+		left join tbl_status on tbl_kelompok.sts_kelompok = tbl_status.nama_sts");
 		
 		//$this->db->select('*');
         //$this->db->from('tbl_peserta');
@@ -51,38 +41,15 @@ public function test($search_term='default'){
         //$result = $query->result();
 		return $query->result_array();
 	  }
+    
+    /*************  START EDIT PARTICULER DATA QUERY *************/
+    public function edit_data($id){
+        $query=$this->db->query("SELECT *
+								 FROM tbl_kelompok ks
+								 WHERE ks.kod_kelompok = $id");
+		return $query->result_array();
+    }
+    /*************  END EDIT PARTICULER DATA QUERY ***************/
 
-	public function get($u_id)
-	{
-		$this->db->where('id', $u_id);
-		$result = $this->db->get('tbl_pengguna');
-		return $result->row_array();
-	}
-	
-	public function update($id_pengguna,$nama_pengguna,$no_mykad,$emel,$no_tel_bimbit,$kod_organisasi,$kod_kumppengguna,$kod_stspengguna,$tarikh_daftar)
-	{
-		$data = array(
-			   'id_pengguna' => $id_pengguna,
-               'nama_pengguna' => $nama_pengguna,
-			   'no_mykad' => $no_mykad,
-			   'emel' => $emel,
-			   'no_tel_bimbit' => $no_tel_bimbit,
-			   'kod_organisasi' => $kod_organisasi,
-			   'kod_kumppengguna' => $kod_kumppengguna,
-			   'kod_stspengguna' => $kod_stspengguna,
-			   'tarikh_daftar' => $tarikh_daftar
-        );
-
-		$this->db->where('id_pengguna', $u_id);
-		$this->db->where("(su != 1)");
-		$this->db->update('tbl_pengguna', $data); 
-	}
-
-
-	public function delete($u_id)
-	{
-		$this->db->where('id_pengguna', $u_id);
-		$this->db->where("(su != 1)");
-		$this->db->delete('tbl_pengguna'); 
-	}
 }
+

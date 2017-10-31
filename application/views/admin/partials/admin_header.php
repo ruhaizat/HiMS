@@ -24,6 +24,7 @@
     <link href="<?php echo base_url("assets/build/css/custom.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/build/css/matrix-media.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/build/css/matrix-style.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/css/jquery.dataTables.min.css"); ?>" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -32,7 +33,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-             <a href="<?= base_url('Admin/dashboard'); ?>" class="site_title" align=""><img src="<?= base_url('assets/images/logohibah.png'); ?>"></a>
+             <a href="<?= base_url('Admin/dashboard'); ?>" class="site_title" align=""><img src="<?= base_url('assets/images/logo.png'); ?>"></a>
             </div>
 
             <div class="clearfix"></div>
@@ -57,38 +58,49 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="<?= base_url('Admin/dashboard'); ?>"><i class="fa fa-home"></i> Utama </a></li>
-                  <!--<?php if($this->session->userdata('kod_kumppengguna') != "1" ) : ?>
-                            <li><a><i class="fa fa-user"></i> Profil Saya<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="<?php echo base_url() . 'Admin/profile'; ?>"><i class="fa fa-user"></i>Kemaskini Profil Saya</a></li>
-                    <li><a href="<?php echo base_url() . 'Admin/ChangePwd'; ?>"><i class="fa fa-key"></i>Tukar Kata Laluan</a></li>
-                    <li><a href="#"><i class="fa fa-th"></i>Log Aktiviti</a></li>
-                  </ul>
-                  </li>-->
                   <li><a><i class="fa fa-file"></i>Pendeposit<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <!--<li><a href="#"><i class="fa fa-search"></i>Carian</a></li>-->
-                    <li><a href="<?= base_url('Admin/pendeposit'); ?>"><i class="fa fa-list"></i>Senarai Pendeposit</a></li>
-                     <li><a href="<?= base_url('Admin/kelompok'); ?>"><i class="fa fa-list"></i>Senarai Kelompok</a></li>
+					<?php if($this->session->userdata('kod_kumppengguna') == 1 || $this->session->userdata('kod_kumppengguna') == 2):?>
                     <li><a href="<?= base_url('Admin/Document/cipta_dokumen_baru'); ?>"><i class="fa fa-pencil"></i>Cipta Kelompok Baru</a></li>
-                    <li><a href="<?= base_url('Admin/borang'); ?>"><i class="fa fa-list"></i>Senarai Borang</a></li>                   
+					<?php endif;?>
+                     <li><a href="<?= base_url('Admin/kelompok'); ?>"><i class="fa fa-list"></i>Senarai Kelompok</a></li>
+					<?php if($this->session->userdata('kod_kumppengguna') == 1 || $this->session->userdata('kod_kumppengguna') == 2):?>
+                    <li><a href="<?= base_url('Admin/pendeposit'); ?>"><i class="fa fa-list"></i>Senarai Pendeposit</a></li>   
+					<?php endif;?>					
                   </ul>
                   </li>
-                    <?php endif; ?>
-                    <li><a><i class="fa fa-cog"></i> Pentadbiran <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-file"></i>Borang<span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="<?= base_url('Admin/borang/cipta_borang'); ?>"><i class="fa fa-file-excel-o"></i>Cipta Borang Baru</a></li>
+                    <li><a href="<?= base_url('Admin/borang'); ?>"><i class="fa fa-list"></i>Senarai Borang</a></li>                   
+                  </ul>
+                  </li>             
+                    <li><a><i class="fa fa-cog"></i>Inbois<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="<?= base_url('Admin/pengguna'); ?>"><i class="fa fa-list"></i>Senarai Pengguna</a></li>
-                        <li><a href="<?= base_url('Admin/invoice'); ?>"><i class="fa fa-list"></i>Senarai Inbois</a></li>
-                        <li><a href="<?= base_url('Admin/invoice/cipta_invoice'); ?>"><i class="fa fa-file-excel-o"></i>Cipta Inbois Baru</a></li>
-                         <li><a href="<?= base_url('admin/employee'); ?>"><i class="fa fa-tags"></i>Log Aktiviti Pengguna</a></li>
+                        <li><a href="<?= base_url('Admin/Invoice/cipta_invoice'); ?>"><i class="fa fa-file-excel-o"></i>Cipta Inbois Baru</a></li>
+                        <li><a href="<?= base_url('Admin/Invoice'); ?>"><i class="fa fa-list"></i>Senarai Inbois TH</a></li>
                       </ul>
                   </li>
-                 <!--<li><a><i class="fa fa-table"></i> Vehicles <span class="fa fa-chevron-down"></span></a>
+					<?php if($this->session->userdata('kod_kumppengguna') == 1 || $this->session->userdata('kod_kumppengguna') == 2):?>
+                    <li><a><i class="fa fa-cog"></i>Pentadbiran<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="<?= base_url('Admin/pengguna'); ?>"><i class="fa fa-list"></i>Senarai Pengguna</a></li>
+                         <li><a href="<?= base_url('Admin/employee'); ?>"><i class="fa fa-tags"></i>Log Aktiviti Pengguna</a></li>
+                      </ul>
+                  </li>
+				  <?php endif;?>
+					<?php if($this->session->userdata('kod_kumppengguna') == 1):?>
+                    <li><a><i class="fa fa-cog"></i>Selenggara<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?= base_url('admin/vehicles'); ?>">All Vehicles</a></li>
-                      <li><a href="<?= base_url('admin/vehicles/soldlist'); ?>">Sold Vehicles</a></li>
+                      <li><a href="<?php echo base_url() . 'Admin/Jenispengguna';?>"><i class="fa fa-user-plus"></i>Jenis Pengguna</a></li>
+                      <li><a href="<?php echo base_url() . 'Admin/Kategorisijil';?>"><i class="fa fa-certificate"></i>Kategori Sijil</a></li>
+                      <li><a href="<?php echo base_url() . 'Admin/Statusbayaran';?>"><i class="fa fa-credit-card"></i>Status Bayaran</a></li>
+                      <li><a href="<?php echo base_url() . 'Admin/Kehadiran';?>"><i class="fa fa-file"></i>Status Kehadiran</a></li>
+                      <li><a href="<?php echo base_url() . 'Admin/Kelayakan';?>"><i class="fa fa-edit"></i>Status Kelayakan</a></li>
+                      <li><a href="<?php echo base_url() . 'Admin/Jeniskursus';?>"><i class="fa fa-table"></i>Jenis Kursus</a></li>
                     </ul>
-                  </li>-->
+                  </li>
+				  <?php endif;?>
                 </ul>
               </div>
             </div>

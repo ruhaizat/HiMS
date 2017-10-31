@@ -24,5 +24,6 @@
     <script src="<?php echo base_url('assets/build/js/custom.js'); ?>"> </script>
     <!-- Date Picker -->
     <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js'); ?>"> </script>
+    <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"> </script>
   </body>
 </html>
